@@ -31,7 +31,7 @@ Repair Rush is an arcade-style minigame collection where you run around fixing m
 - Multiple machines with at least 3 minigames each
 - Different game modes:
   - Campaign mode
-  - Infinite mode
+  - Endless mode
 - Global / Local leaderboard
 
 ### License

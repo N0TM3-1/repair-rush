@@ -1,0 +1,13 @@
+require('debugger.debugger').start()
+require 'modules.switch'
+
+function init(self)
+	msg.post(".", "acquire_input_focus") -- Acquire input focus (needed for new collection)
+	msg.post("#main_menu", "load")
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("proxy_loaded") then
+		switch.load(sender)
+	end
+end

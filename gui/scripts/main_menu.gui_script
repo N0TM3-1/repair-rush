@@ -1,0 +1,26 @@
+require 'modules.switch'
+
+local play
+
+local function init_gui()
+	play = gui.get_node("play")
+end
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	init_gui()
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("proxy_loaded") then
+		switch.change("#main_menu", sender)
+	end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") and action.pressed then -- Detect mouse click
+		if gui.pick_node(play, action.x, action.y) then
+			msg.post("main:/proxies#game", "load")
+		end
+	end
+end

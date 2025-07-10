@@ -1,5 +1,5 @@
 [bootstrap]
-main_collection = /main/main.collectionc
+main_collection = /collections/main.collectionc
 
 [script]
 shared_state = 1
@@ -17,4 +17,5 @@ scale_mode = stretch
 
 [project]
 title = Repair Rush
+version = 0.1
 
