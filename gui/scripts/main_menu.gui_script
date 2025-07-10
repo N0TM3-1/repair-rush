@@ -13,6 +13,7 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("proxy_loaded") then
+		msg.post(".", "release_input_focus")
 		switch.change("#main_menu", sender)
 	end
 end

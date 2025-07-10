@@ -1,7 +1,33 @@
 name: "game"
+instances {
+  id: "player"
+  prototype: "/game-objects/player.go"
+  children: "camera"
+  position {
+    x: 326.0
+    y: 188.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
-  id: "go"
+  id: "camera"
+  data: "embedded_components {\n"
+  "  id: \"camera\"\n"
+  "  type: \"camera\"\n"
+  "  data: \"aspect_ratio: 1.0\\n"
+  "fov: 0.7854\\n"
+  "near_z: 0.1\\n"
+  "far_z: 1000.0\\n"
+  "orthographic_projection: 1\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "placeholder"
   data: "embedded_components {\n"
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
@@ -13,9 +39,66 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 232.0\n"
-  "    y: 219.0\n"
+  "    x: 51.0\n"
+  "    y: 54.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 0.5\n"
+  "    y: 0.5\n"
+  "    z: 0.5\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"logo_blue_256\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 256.0\\n"
+  "  y: 256.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/atlasses/temp.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 569.0\n"
+  "    y: 88.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 0.5\n"
+  "    y: 0.5\n"
+  "    z: 0.5\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite2\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"logo_blue_256\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 256.0\\n"
+  "  y: 256.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/atlasses/temp.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 111.0\n"
+  "    y: 352.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 0.5\n"
+  "    y: 0.5\n"
+  "    z: 0.5\n"
   "  }\n"
   "}\n"
   ""
+  position {
+    x: 44.0
+    y: 13.0
+  }
 }
