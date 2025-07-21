@@ -1,0 +1,10 @@
+images {
+  image: "/assets/machines/stove/minigame/background.png"
+}
+images {
+  image: "/assets/machines/stove/minigame/knob.png"
+}
+images {
+  image: "/assets/machines/stove/minigame/target.png"
+}
+extrude_borders: 2

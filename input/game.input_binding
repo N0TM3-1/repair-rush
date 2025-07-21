@@ -14,7 +14,27 @@ key_trigger {
   input: KEY_D
   action: "east"
 }
+key_trigger {
+  input: KEY_Q
+  action: "action_left"
+}
+key_trigger {
+  input: KEY_E
+  action: "action_right"
+}
+key_trigger {
+  input: KEY_ENTER
+  action: "confirm"
+}
 mouse_trigger {
   input: MOUSE_BUTTON_1
   action: "touch"
+}
+mouse_trigger {
+  input: MOUSE_WHEEL_UP
+  action: "zoom_in"
+}
+mouse_trigger {
+  input: MOUSE_WHEEL_DOWN
+  action: "zoom_out"
 }

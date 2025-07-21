@@ -8,10 +8,26 @@ instances {
     y: 188.0
   }
 }
+instances {
+  id: "stove"
+  prototype: "/game-objects/machines/stove.go"
+  position {
+    x: 720.0
+    y: 250.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "camera"
-  data: "embedded_components {\n"
+  data: "components {\n"
+  "  id: \"camera1\"\n"
+  "  component: \"/scripts/camera.script\"\n"
+  "}\n"
+  "embedded_components {\n"
   "  id: \"camera\"\n"
   "  type: \"camera\"\n"
   "  data: \"aspect_ratio: 1.0\\n"
@@ -19,6 +35,7 @@ embedded_instances {
   "near_z: 0.1\\n"
   "far_z: 1000.0\\n"
   "orthographic_projection: 1\\n"
+  "orthographic_zoom: 0.9\\n"
   "\"\n"
   "}\n"
   ""
@@ -27,78 +44,15 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "placeholder"
+  id: "minigames"
   data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"logo_blue_256\\\"\\n"
-  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
-  "textures {\\n"
-  "  sampler: \\\"texture_sampler\\\"\\n"
-  "  texture: \\\"/assets/atlasses/temp.atlas\\\"\\n"
-  "}\\n"
+  "  id: \"stove_1\"\n"
+  "  type: \"collectionproxy\"\n"
+  "  data: \"collection: \\\"/collections/minigames/stove/stove_1.collection\\\"\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 51.0\n"
-  "    y: 54.0\n"
-  "  }\n"
-  "  scale {\n"
-  "    x: 0.5\n"
-  "    y: 0.5\n"
-  "    z: 0.5\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"logo_blue_256\\\"\\n"
-  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 256.0\\n"
-  "  y: 256.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"texture_sampler\\\"\\n"
-  "  texture: \\\"/assets/atlasses/temp.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 569.0\n"
-  "    y: 88.0\n"
-  "  }\n"
-  "  scale {\n"
-  "    x: 0.5\n"
-  "    y: 0.5\n"
-  "    z: 0.5\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite2\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"logo_blue_256\\\"\\n"
-  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 256.0\\n"
-  "  y: 256.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"texture_sampler\\\"\\n"
-  "  texture: \\\"/assets/atlasses/temp.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 111.0\n"
-  "    y: 352.0\n"
-  "  }\n"
-  "  scale {\n"
-  "    x: 0.5\n"
-  "    y: 0.5\n"
-  "    z: 0.5\n"
-  "  }\n"
   "}\n"
   ""
   position {
-    x: 44.0
-    y: 13.0
+    z: 0.1
   }
 }

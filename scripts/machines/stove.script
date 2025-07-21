@@ -1,0 +1,22 @@
+require 'modules.switch'
+
+local function start_minigame()
+    msg.post("/minigames#stove_1", "load")
+end
+
+function init(self)
+
+end
+
+function on_message(self, message_id, message, sender)
+    print(message_id)
+    if message_id == hash("start_minigame") then
+        start_minigame()
+    elseif message_id == hash("proxy_loaded") then
+        switch.load(sender)
+    end
+end
+
+function final(self)
+
+end

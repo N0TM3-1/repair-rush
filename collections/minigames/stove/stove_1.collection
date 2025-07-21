@@ -1,0 +1,257 @@
+name: "stove_1"
+scale_along_z: 0
+embedded_instances {
+  id: "go"
+  children: "knob1"
+  children: "knob2"
+  children: "knob3"
+  children: "knob4"
+  children: "target1"
+  children: "target2"
+  children: "target3"
+  children: "target4"
+  data: "components {\n"
+  "  id: \"stove_1\"\n"
+  "  component: \"/scripts/minigames/stove/stove_1.script\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"background\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"background\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/atlasses/minigames.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 960.0\n"
+  "    y: 540.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 10.0\n"
+  "    y: 10.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -5.0
+    y: -9.0
+  }
+}
+embedded_instances {
+  id: "knob1"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"knob\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/atlasses/minigames.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 360.0
+    y: 226.0
+    z: 1.0
+  }
+  scale3 {
+    x: 10.0
+    y: 10.0
+  }
+}
+embedded_instances {
+  id: "knob2"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"knob\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 32.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/atlasses/minigames.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 760.0
+    y: 226.0
+    z: 1.0
+  }
+  scale3 {
+    x: 10.0
+    y: 10.0
+  }
+}
+embedded_instances {
+  id: "knob3"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"knob\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 32.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/atlasses/minigames.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 1160.0
+    y: 226.0
+    z: 1.0
+  }
+  scale3 {
+    x: 10.0
+    y: 10.0
+  }
+}
+embedded_instances {
+  id: "knob4"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"knob\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 32.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/atlasses/minigames.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 1560.0
+    y: 226.0
+    z: 1.0
+  }
+  scale3 {
+    x: 10.0
+    y: 10.0
+  }
+}
+embedded_instances {
+  id: "target1"
+  data: "embedded_components {\n"
+  "  id: \"target\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"target\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/atlasses/minigames.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 360.0
+    y: 226.0
+    z: 1.0
+  }
+  scale3 {
+    x: 10.0
+    y: 10.0
+  }
+}
+embedded_instances {
+  id: "target2"
+  data: "embedded_components {\n"
+  "  id: \"target\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"target\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 40.0\\n"
+  "  y: 40.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/atlasses/minigames.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 760.0
+    y: 226.0
+    z: 1.0
+  }
+  scale3 {
+    x: 10.0
+    y: 10.0
+  }
+}
+embedded_instances {
+  id: "target4"
+  data: "embedded_components {\n"
+  "  id: \"target\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"target\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 40.0\\n"
+  "  y: 40.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/atlasses/minigames.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 1560.0
+    y: 226.0
+    z: 1.0
+  }
+  scale3 {
+    x: 10.0
+    y: 10.0
+  }
+}
+embedded_instances {
+  id: "target3"
+  data: "embedded_components {\n"
+  "  id: \"target\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"target\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 40.0\\n"
+  "  y: 40.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/atlasses/minigames.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 1160.0
+    y: 226.0
+    z: 1.0
+  }
+  scale3 {
+    x: 10.0
+    y: 10.0
+  }
+}

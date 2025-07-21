@@ -5,8 +5,12 @@ fonts {
 }
 nodes {
   position {
-    x: 505.0
-    y: 303.0
+    x: 960.0
+    y: 480.0
+  }
+  scale {
+    x: 2.0
+    y: 2.0
   }
   size {
     x: 200.0
@@ -36,6 +40,25 @@ nodes {
   font: "default"
   id: "text"
   parent: "play"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 960.0
+    y: 974.0
+  }
+  scale {
+    x: 10.0
+    y: 10.0
+  }
+  size {
+    x: 100.0
+    y: 50.0
+  }
+  type: TYPE_TEXT
+  text: "Repair Rush"
+  font: "default"
+  id: "Title"
   inherit_alpha: true
 }
 material: "/builtins/materials/gui.material"

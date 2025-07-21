@@ -1,0 +1,36 @@
+go.property("min_zoom", 0.5)
+go.property("max_zoom", 1)
+go.property("zoom_ammount", 0.1)
+
+local zoom
+
+local function set_zoom(zoom)
+	go.set("#camera", "orthographic_zoom", zoom)
+end
+
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	zoom = self.min_zoom
+	set_zoom(zoom)
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Learn more: https://defold.com/manuals/message-passing/
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("zoom_in") then
+		if zoom + self.zoom_ammount <= self.max_zoom then
+			zoom = zoom + self.zoom_ammount
+			set_zoom(zoom)
+		end
+	elseif action_id == hash("zoom_out") then
+		if zoom - self.zoom_ammount >= self.min_zoom then
+			zoom = zoom - self.zoom_ammount
+			set_zoom(zoom)
+		end
+	end
+end

@@ -1,0 +1,64 @@
+local machines = require 'modules.machines'
+
+go.property("speed", 10)
+go.property("interaction_distance", 300)
+
+local distances = {}
+
+local function move(self, action_id)
+	local pos = go.get_position()
+	if action_id == hash("north") then
+		pos.y = pos.y + self.speed -- Increment y position (move up)
+	end
+	if action_id == hash("south") then
+		pos.y = pos.y - self.speed -- Decrement y position (move down)
+	end
+	if action_id == hash("east") then
+		pos.x = pos.x + self.speed -- Increment x position (move right)
+	end
+	if action_id == hash("west") then
+		pos.x = pos.x - self.speed -- Decrement x position (move left)
+	end
+	go.set_position(pos)     -- Update position
+end
+
+local function get_distance(other_url)
+	local self_pos = go.get_position()
+	local other_pos = go.get_position(other_url)
+	return vmath.length(self_pos - other_pos)
+end
+
+local function get_smallest()
+	local smallest = 999999 -- Larger than possible distances
+	local smallest_index = ""
+	for k, v in pairs(distances) do
+		if v < smallest then
+			smallest = v
+			smallest_index = k
+		end
+	end
+	return smallest_index
+end
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+end
+
+function update(self, dt)
+
+end
+
+function on_input(self, action_id, action)
+	move(self, action_id)
+	if action_id == hash("action_right") and action.pressed then
+		for k, v in pairs(machines) do
+			distances[v] = get_distance(v)
+		end
+		local url = get_smallest()
+		msg.post(url, "start_minigame")
+	end
+end
+
+function on_message(self, message_id, message, sender)
+
+end
