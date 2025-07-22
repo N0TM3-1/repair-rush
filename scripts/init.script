@@ -4,6 +4,7 @@ require 'modules.switch'
 function init(self)
 	msg.post(".", "acquire_input_focus") -- Acquire input focus (needed for new collection)
 	msg.post("#main_menu", "load")
+	msg.post("@render:", "use_fixed_fit_projection")
 end
 
 function on_message(self, message_id, message, sender)

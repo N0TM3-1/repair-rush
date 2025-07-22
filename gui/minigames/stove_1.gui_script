@@ -1,7 +1,11 @@
-go.property("rotation_speed", 5)
+local rotation_speed = 5
 
 local knob_angles = {}
 local target_angles = {}
+
+local knobs = {}
+local targets = {}
+local background
 
 local knob_index = 1
 
@@ -12,12 +16,12 @@ end
 
 local function set_knob(id, angle)
 	local angle_rad = math.rad(angle)
-	go.set_rotation(vmath.quat_rotation_z(angle_rad), id)
+	gui.set_rotation(id, vmath.quat_rotation_z(angle_rad))
 end
 
 local function set_target(id, angle)
 	local angle_rad = math.rad(angle)
-	go.set_rotation(vmath.quat_rotation_z(angle_rad), id)
+	gui.set_rotation(id, vmath.quat_rotation_z(angle_rad))
 end
 
 local function angle_difference(a, b)
@@ -27,7 +31,6 @@ local function angle_difference(a, b)
 	end
 	return diff
 end
-
 
 local function check_knob()
 	local knob_status = {}
@@ -42,17 +45,16 @@ local function check_knob()
 	return knob_status[1] and knob_status[2] and knob_status[3] and knob_status[4]
 end
 
-
 local move_knob = {}
 
-function move_knob.left(self)
-	knob_angles[knob_index] = normalize_angle(knob_angles[knob_index] + self.rotation_speed)
-	set_knob("knob" .. knob_index, knob_angles[knob_index])
+function move_knob.left()
+	knob_angles[knob_index] = normalize_angle(knob_angles[knob_index] + rotation_speed)
+	set_knob(knobs[knob_index], knob_angles[knob_index])
 end
 
-function move_knob.right(self)
-	knob_angles[knob_index] = normalize_angle(knob_angles[knob_index] - self.rotation_speed)
-	set_knob("knob" .. knob_index, knob_angles[knob_index])
+function move_knob.right()
+	knob_angles[knob_index] = normalize_angle(knob_angles[knob_index] - rotation_speed)
+	set_knob(knobs[knob_index], knob_angles[knob_index])
 end
 
 function move_knob.moveIndex()
@@ -67,34 +69,55 @@ function move_knob.moveIndex()
 	end
 end
 
-function init(self)
+local function init_gui()
+	background = gui.get_node("background")
+	for i = 1, 4 do
+		knobs[i] = gui.get_node("knob" .. i)
+		targets[i] = gui.get_node("target" .. i)
+	end
+	gui.set_visible(background, false)
+	for i = 1, 4 do
+		gui.set_visible(knobs[i], false)
+		gui.set_visible(targets[i], false)
+	end
+end
+
+local function start_game()
 	msg.post(".", "acquire_input_focus")
+	gui.set_visible(background, true)
+	for i = 1, 4 do
+		gui.set_visible(knobs[i], true)
+		gui.set_visible(targets[i], true)
+	end
 	for i = 1, 4 do
 		-- Initialize knobs --
-		local id = "knob" .. i
 		knob_angles[i] = math.random(0, 359)
-		set_knob(id, knob_angles[i])
-
+		set_knob(knobs[i], knob_angles[i])
 		-- Initialize targets --
-		local id = "target" .. i
 		target_angles[i] = math.random(0, 359)
 		while math.abs(target_angles[i] - knob_angles[i]) < 60 do
 			target_angles[i] = math.random(0, 359)
 		end
-		set_target(id, target_angles[i])
+		set_target(targets[i], knob_angles[i])
+	end
+end
+
+function init(self)
+	init_gui()
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("start") then
+		start_game()
 	end
 end
 
 function on_input(self, action_id, action)
 	if action_id == hash("action_left") then
-		move_knob.left(self)
+		move_knob.left()
 	elseif action_id == hash("action_right") then
-		move_knob.right(self)
+		move_knob.right()
 	elseif action_id == hash("confirm") and action.pressed then
 		move_knob.moveIndex()
 	end
-end
-
-function final(self)
-	msg.post(".", "release_input_focus")
 end

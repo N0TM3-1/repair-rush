@@ -45,11 +45,9 @@ embedded_instances {
 }
 embedded_instances {
   id: "minigames"
-  data: "embedded_components {\n"
+  data: "components {\n"
   "  id: \"stove_1\"\n"
-  "  type: \"collectionproxy\"\n"
-  "  data: \"collection: \\\"/collections/minigames/stove/stove_1.collection\\\"\\n"
-  "\"\n"
+  "  component: \"/gui/minigames/stove_1.gui\"\n"
   "}\n"
   ""
   position {

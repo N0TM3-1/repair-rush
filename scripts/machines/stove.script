@@ -1,7 +1,7 @@
 require 'modules.switch'
 
 local function start_minigame()
-    msg.post("/minigames#stove_1", "load")
+    msg.post("/minigames#stove_1", "start")
 end
 
 function init(self)
@@ -9,7 +9,6 @@ function init(self)
 end
 
 function on_message(self, message_id, message, sender)
-    print(message_id)
     if message_id == hash("start_minigame") then
         start_minigame()
     elseif message_id == hash("proxy_loaded") then

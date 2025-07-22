@@ -1,4 +1,4 @@
-script: "/gui/scripts/main_menu.gui_script"
+script: "/gui/main-menu/main_menu.gui_script"
 fonts {
   name: "default"
   font: "/builtins/fonts/default.font"
@@ -45,7 +45,7 @@ nodes {
 nodes {
   position {
     x: 960.0
-    y: 974.0
+    y: 906.0
   }
   scale {
     x: 10.0

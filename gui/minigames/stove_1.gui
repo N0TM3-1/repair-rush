@@ -1,0 +1,142 @@
+script: "/gui/minigames/stove_1.gui_script"
+textures {
+  name: "minigames"
+  texture: "/assets/atlasses/minigames.atlas"
+}
+nodes {
+  position {
+    x: 960.0
+    y: 540.0
+  }
+  scale {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  texture: "minigames/background"
+  id: "background"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 360.0
+    y: 226.0
+  }
+  scale {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  texture: "minigames/knob"
+  id: "knob1"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 760.0
+    y: 226.0
+  }
+  scale {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  texture: "minigames/knob"
+  id: "knob2"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 1160.0
+    y: 226.0
+  }
+  scale {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  texture: "minigames/knob"
+  id: "knob3"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 1560.0
+    y: 226.0
+  }
+  scale {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  texture: "minigames/knob"
+  id: "knob4"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 360.0
+    y: 226.0
+  }
+  scale {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  texture: "minigames/target"
+  id: "target1"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 760.0
+    y: 226.0
+  }
+  scale {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  texture: "minigames/target"
+  id: "target2"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 1160.0
+    y: 226.0
+  }
+  scale {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  texture: "minigames/target"
+  id: "target3"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 1560.0
+    y: 226.0
+  }
+  scale {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  texture: "minigames/target"
+  id: "target4"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT
