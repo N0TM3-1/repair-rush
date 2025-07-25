@@ -42,7 +42,6 @@ local function check_knob()
 	return knob_status[1] and knob_status[2] and knob_status[3] and knob_status[4]
 end
 
-
 local move_knob = {}
 
 function move_knob.left(self)
