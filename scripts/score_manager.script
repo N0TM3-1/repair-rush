@@ -1,0 +1,10 @@
+local score = 0
+
+go.property("score_increment", 1) -- Imcrement ammount
+
+function on_message(self, message_id, message)
+    if message_id == hash("increment") then
+        score = score + self.score_increment
+        msg.post("game:/gui#score", "update_score", { score })
+    end
+end

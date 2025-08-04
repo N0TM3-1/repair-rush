@@ -7,6 +7,14 @@ instances {
     x: 326.0
     y: 188.0
   }
+  component_properties {
+    id: "player"
+    properties {
+      id: "speed"
+      value: "600.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
 }
 instances {
   id: "stove"
@@ -19,6 +27,10 @@ instances {
     x: 5.0
     y: 5.0
   }
+}
+instances {
+  id: "console"
+  prototype: "/.defold/assets/defcon/console.go"
 }
 scale_along_z: 0
 embedded_instances {
@@ -80,4 +92,12 @@ embedded_instances {
     x: 2.0
     y: 2.0
   }
+}
+embedded_instances {
+  id: "gui"
+  data: "components {\n"
+  "  id: \"score\"\n"
+  "  component: \"/gui/score/score.gui\"\n"
+  "}\n"
+  ""
 }

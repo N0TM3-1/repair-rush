@@ -7,12 +7,15 @@
     "expandedProjectPaths": [
     ],
     "fileStates": {
+        "#interior": {
+            "scaleInDock": 1
+        }
     },
     "last.exportedFilePath": "/home/dumitru/projects/repair-rush/assets",
     "last.imagePath": "/home/dumitru/projects/repair-rush/assets/interior",
-    "map.height": 32,
+    "map.height": 16,
     "map.lastUsedExportFilter": "Defold Tile Map (*.tilemap)",
-    "map.width": 32,
+    "map.width": 16,
     "openFiles": [
     ],
     "project": "repair-rush.tiled-project",

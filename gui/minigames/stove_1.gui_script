@@ -49,6 +49,7 @@ local function end_game()
 	knob_index = 1
 	initial_click = true
 	msg.post("game:/player#player", "game_ended")
+	msg.post("game:/player#score_manager", "increment")
 end
 
 local move_knob = {}

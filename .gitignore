@@ -8,8 +8,9 @@ Thumbs.db
 *.pyc
 .project
 .cproject
+
 builtins
-/.defold/api
+/.defold
 .vscode/
-bundles/
+/bundles
 *.tiled-session
