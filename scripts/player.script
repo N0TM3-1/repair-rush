@@ -1,25 +1,24 @@
 local machines = require 'modules.machines'
 
-go.property("speed", 10)
+go.property("force_magnitude", 10)
 go.property("interaction_distance", 300)
 
 local distances = {}
 
 local function move(self, action_id)
-	local pos = go.get_position()
+	local force = vmath.vector3(0, 0, 0)
 	if action_id == hash("north") then
-		pos.y = pos.y + self.speed -- Increment y position (move up)
+		force.y = self.force_magnitude
 	end
 	if action_id == hash("south") then
-		pos.y = pos.y - self.speed -- Decrement y position (move down)
+		force.y = -self.force_magnitude
 	end
 	if action_id == hash("east") then
-		pos.x = pos.x + self.speed -- Increment x position (move right)
+		force.x = self.force_magnitude
 	end
 	if action_id == hash("west") then
-		pos.x = pos.x - self.speed -- Decrement x position (move left)
+		force.x = -self.force_magnitude
 	end
-	go.set_position(pos)     -- Update position
 end
 
 local function get_distance(other_url)

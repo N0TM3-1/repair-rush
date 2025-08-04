@@ -12,3 +12,4 @@ builtins
 /.defold/api
 .vscode/
 bundles/
+*.tiled-session
