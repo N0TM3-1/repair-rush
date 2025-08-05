@@ -28,10 +28,6 @@ instances {
     y: 5.0
   }
 }
-instances {
-  id: "console"
-  prototype: "/.defold/assets/defcon/console.go"
-}
 scale_along_z: 0
 embedded_instances {
   id: "camera"
