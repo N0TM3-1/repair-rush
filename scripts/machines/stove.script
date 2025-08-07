@@ -36,7 +36,7 @@ function on_message(self, message_id, message, sender)
         start_minigame()
     elseif message_id == hash("proxy_loaded") then
         switch.load(sender)
-    elseif message_id == hash("game_ended") then
+    elseif message_id == hash("minigame_ended") then
         fix_machine()
     end
 end

@@ -53,7 +53,7 @@ function on_message(self, message_id, message, sender)
 				break
 			end
 		end
-	elseif message_id == hash("game_ended") then
+	elseif message_id == hash("minigame_ended") then
 		msg.post(".", "acquire_input_focus")
 	end
 end

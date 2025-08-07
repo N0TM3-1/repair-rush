@@ -48,8 +48,8 @@ local function end_game()
 	end
 	knob_index = 1
 	initial_click = true
-	msg.post("game:/player#player", "game_ended")
-	msg.post("game:/stove#stove", "game_ended")
+	msg.post("game:/player#player", "minigame_ended")
+	msg.post("game:/stove#stove", "minigame_ended")
 	msg.post("game:/player#score_manager", "increment")
 end
 

@@ -1,0 +1,49 @@
+script: "/gui/end_screen/end_screen.gui_script"
+fonts {
+  name: "druid_text_regular"
+  font: "/.defold/assets/druid/fonts/druid_text_regular.font"
+}
+fonts {
+  name: "druid_text_bold"
+  font: "/.defold/assets/druid/fonts/druid_text_bold.font"
+}
+nodes {
+  position {
+    x: 960.0
+    y: 540.0
+  }
+  scale {
+    x: 3.0
+    y: 3.0
+  }
+  size {
+    x: 200.0
+    y: 50.0
+  }
+  type: TYPE_TEXT
+  text: "Game Over"
+  font: "druid_text_bold"
+  id: "title"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 960.0
+    y: 368.0
+  }
+  scale {
+    x: 2.0
+    y: 2.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Final score: 0"
+  font: "druid_text_regular"
+  id: "subtitle"
+  inherit_alpha: true
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT
