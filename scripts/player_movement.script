@@ -93,7 +93,6 @@ end
 
 function on_message(self, message_id, message)
     if message_id == hash("contact_point_response") then
-        -- Handle collision with walls or other objects
         local normal = message.normal
         local distance = message.distance
 
@@ -107,7 +106,6 @@ function on_message(self, message_id, message)
             velocity.y = 0
         end
 
-        -- Optionally, you can separate the object from the collision
         if distance > 0 then
             local pos = go.get_position()
             pos = pos + normal * distance

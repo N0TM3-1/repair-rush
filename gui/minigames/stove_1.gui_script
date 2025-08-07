@@ -49,6 +49,7 @@ local function end_game()
 	knob_index = 1
 	initial_click = true
 	msg.post("game:/player#player", "game_ended")
+	msg.post("game:/stove#stove", "game_ended")
 	msg.post("game:/player#score_manager", "increment")
 end
 
@@ -113,7 +114,6 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("start") then
-		sender_url = message[1]
 		start_game()
 	end
 end

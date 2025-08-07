@@ -1,11 +1,34 @@
 require 'modules.switch'
 
+go.property("min_cooldown", 5)
+go.property("max_cooldown", 10)
+
+local broken = false
+local timer_active = false
+
 local function start_minigame()
     msg.post("/minigames#stove_1", "start")
 end
 
-function init(self)
+local function fix_machine()
+    msg.post("game:/player#player", "fixed")
+    broken = false
+end
 
+local function break_machine()
+    broken = true
+    timer_active = false
+    msg.post("game:/player#player", "broken")
+end
+
+function update(self, dt)
+    if not timer_active and not broken then
+        math.randomseed(os.time())
+        cooldown = math.random(self.min_cooldown, self.max_cooldown)
+        print(cooldown)
+        timer_active = true
+        timer.delay(cooldown, false, break_machine)
+    end
 end
 
 function on_message(self, message_id, message, sender)
@@ -13,6 +36,8 @@ function on_message(self, message_id, message, sender)
         start_minigame()
     elseif message_id == hash("proxy_loaded") then
         switch.load(sender)
+    elseif message_id == hash("game_ended") then
+        fix_machine()
     end
 end
 
