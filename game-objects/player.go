@@ -6,6 +6,15 @@ components {
   id: "score_manager"
   component: "/scripts/score_manager.script"
 }
+components {
+  id: "player_movement"
+  component: "/scripts/player_movement.script"
+  properties {
+    id: "speed"
+    value: "500.0"
+    type: PROPERTY_TYPE_NUMBER
+  }
+}
 embedded_components {
   id: "sprite"
   type: "sprite"
