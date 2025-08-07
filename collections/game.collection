@@ -4,16 +4,8 @@ instances {
   prototype: "/game-objects/player.go"
   children: "camera"
   position {
-    x: 326.0
-    y: 188.0
-  }
-  component_properties {
-    id: "player"
-    properties {
-      id: "speed"
-      value: "600.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
+    x: 246.0
+    y: 268.0
   }
 }
 instances {
@@ -85,8 +77,8 @@ embedded_instances {
     z: -1.0
   }
   scale3 {
-    x: 2.0
-    y: 2.0
+    x: 5.0
+    y: 5.0
   }
 }
 embedded_instances {

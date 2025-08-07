@@ -1,10 +1,6 @@
-local data
-
 function on_message(self, message_id, message, sender)
-    if message_id == hash("save") then
-        msg.post("game:/player", "start_save")
-        print("Received Save message")
-    elseif message_id == hash('save_data') then
-        data = message
-    end
+	if message_id == hash("save_name") then
+		data = { name = message[1] }
+		sys.save("name", data)
+	end
 end
