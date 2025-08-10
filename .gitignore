@@ -15,3 +15,4 @@ builtins
 /bundles
 *.tiled-session
 .env
+gui/submit_score/submit_score.gui_script
