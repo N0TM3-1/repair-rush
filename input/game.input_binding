@@ -58,6 +58,18 @@ gamepad_trigger {
   input: GAMEPAD_LSTICK_RIGHT
   action: "east"
 }
+gamepad_trigger {
+  input: GAMEPAD_LPAD_LEFT
+  action: "action_left"
+}
+gamepad_trigger {
+  input: GAMEPAD_LPAD_RIGHT
+  action: "action_right"
+}
+gamepad_trigger {
+  input: GAMEPAD_RPAD_DOWN
+  action: "confirm"
+}
 text_trigger {
   input: TEXT
   action: "text"
