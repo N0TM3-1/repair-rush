@@ -33,11 +33,13 @@ end
 
 function on_input(self, action_id, action)
 	if action_id == hash("action_right") and action.pressed then
+		print("ACTION RIGHT")
 		for k, v in pairs(machines) do
 			distances[v] = get_distance(v)
 		end
 		local url = get_smallest(self)
 		if url then
+			print("Released input focus")
 			msg.post(url, "start_minigame")
 			msg.post(".", "release_input_focus")
 		end

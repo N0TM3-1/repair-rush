@@ -1,0 +1,70 @@
+script: "/gui/minigames/fridge_1.gui_script"
+fonts {
+  name: "druid_text_regular"
+  font: "/.defold/assets/druid/fonts/druid_text_regular.font"
+}
+textures {
+  name: "minigames"
+  texture: "/assets/atlasses/minigames.atlas"
+}
+nodes {
+  position {
+    x: 960.0
+    y: 540.0
+  }
+  scale {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  texture: "minigames/bg"
+  id: "bg"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 960.0
+    y: 427.0
+  }
+  scale {
+    x: 3.0
+    y: 3.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "target"
+  font: "druid_text_regular"
+  id: "target"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 960.0
+    y: 630.0
+  }
+  scale {
+    x: 3.0
+    y: 3.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "actual"
+  font: "druid_text_regular"
+  id: "actual"
+  inherit_alpha: true
+}
+layers {
+  name: "background"
+}
+layers {
+  name: "foreground"
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

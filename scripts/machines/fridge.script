@@ -9,7 +9,7 @@ local timer_active = false
 local handle -- Timer Handle
 
 local function start_minigame()
-    msg.post("/minigames#stove_1", "start")
+    msg.post("/minigames#fridge_1", "start")
     msg.post("main:/proxies#game", "set_time_step", { factor = 0, mode = 0 })
 end
 

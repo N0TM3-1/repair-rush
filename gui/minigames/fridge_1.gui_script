@@ -1,0 +1,66 @@
+local bg
+local actual
+local target
+
+local target_number
+local actual_number = 91919
+
+---@param state boolean
+local function set_visible(state)
+	gui.set_visible(bg, state)
+	gui.set_visible(actual, state)
+	gui.set_visible(target, state)
+end
+
+local function init_gui()
+	bg = gui.get_node("bg")
+	actual = gui.get_node("actual")
+	target = gui.get_node("target")
+	set_visible(false)
+end
+
+local function start_game()
+	msg.post("game:/minigames#fridge_1", "acquire_input_focus")
+	set_visible(true)
+	math.randomseed(os.time() + 423887)
+	target_number = math.random(20)
+	actual_number = math.random(30)
+	while math.abs(actual_number - target_number) > 5 do
+		actual_number = math.random(30)
+	end
+	gui.set_text(target, target_number)
+	gui.set_text(actual, actual_number)
+end
+
+local function end_game()
+	if actual_number == target_number then
+		msg.post("game:/minigames#fridge_1", "release_input_focus")
+		set_visible(false)
+		msg.post("game:/player#player", "minigame_ended")
+		msg.post("game:/fridge#fridge", "minigame_ended")
+		msg.post("game:/player#score_manager", "increment")
+	end
+	actual_number = 1010101
+end
+
+function init(self)
+	init_gui()
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("start") then
+		start_game()
+	end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("north") and (action.pressed or action.repeated) then
+		actual_number = actual_number + 1
+		gui.set_text(actual, actual_number)
+	elseif action_id == hash("south") and (action.pressed or action.repeated) then
+		actual_number = actual_number - 1
+		gui.set_text(actual, actual_number)
+	elseif action_id == hash("confirm") then
+		end_game()
+	end
+end

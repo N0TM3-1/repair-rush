@@ -12,8 +12,20 @@ instances {
   id: "stove"
   prototype: "/game-objects/machines/stove.go"
   position {
-    x: 720.0
-    y: 250.0
+    x: 1058.0
+    y: 967.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+  }
+}
+instances {
+  id: "fridge"
+  prototype: "/game-objects/machines/fridge.go"
+  position {
+    x: 224.0
+    y: 975.0
   }
   scale3 {
     x: 5.0
@@ -48,6 +60,10 @@ embedded_instances {
   data: "components {\n"
   "  id: \"stove_1\"\n"
   "  component: \"/gui/minigames/stove_1.gui\"\n"
+  "}\n"
+  "components {\n"
+  "  id: \"fridge_1\"\n"
+  "  component: \"/gui/minigames/fridge_1.gui\"\n"
   "}\n"
   ""
   position {
