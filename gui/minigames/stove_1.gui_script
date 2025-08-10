@@ -33,10 +33,10 @@ end
 local function check_knob()
 	for i = 1, #knob_angles do
 		if angle_difference(target_angles[i], knob_angles[i]) > 30 then
-			return false
+			return { false, i }
 		end
 	end
-	return true
+	return { true }
 end
 
 local function end_game()
@@ -67,12 +67,17 @@ end
 
 function move_knob.move_index()
 	if knob_index < #knobs then
+		gui.set_color(knobs[knob_index], vmath.vector3(0.5, 0.5, 0.5))
 		knob_index = knob_index + 1
+		gui.set_color(knobs[knob_index], vmath.vector3(1, 1, 1))
 	else
-		if check_knob() then -- TODO: Implement per-knob check and alerts for incorrect knobs
+		local result = check_knob()
+		if result[1] then -- TODO: Implement per-knob check and alerts for incorrect knobs
 			end_game()
 		else
-			knob_index = 1
+			gui.set_color(knobs[knob_index], vmath.vector3(0.5, 0.5, 0.5))
+			knob_index = result[2]
+			gui.set_color(knobs[knob_index], vmath.vector3(1, 1, 1))
 		end
 	end
 end
@@ -96,6 +101,7 @@ local function start_game()
 	for i = 1, 4 do
 		gui.set_visible(knobs[i], true)
 		gui.set_visible(targets[i], true)
+		gui.set_color(knobs[i], vmath.vector3(0.5, 0.5, 0.5))
 
 		knob_angles[i] = math.random(0, 359)
 		set_knob(knobs[i], knob_angles[i])
@@ -106,6 +112,7 @@ local function start_game()
 		end
 		set_target(targets[i], target_angles[i])
 	end
+	gui.set_color(knobs[knob_index], vmath.vector3(1, 1, 1))
 end
 
 function init(self)

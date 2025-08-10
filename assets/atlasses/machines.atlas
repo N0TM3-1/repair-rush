@@ -1,4 +1,7 @@
 images {
   image: "/assets/machines/stove/stove.png"
 }
+images {
+  image: "/assets/machines/fridge/frigde.png"
+}
 extrude_borders: 2

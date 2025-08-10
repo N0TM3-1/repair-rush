@@ -7,6 +7,9 @@
     "expandedProjectPaths": [
     ],
     "fileStates": {
+        "#floor": {
+            "scaleInDock": 1
+        },
         "#interior": {
             "scaleInDock": 1
         }

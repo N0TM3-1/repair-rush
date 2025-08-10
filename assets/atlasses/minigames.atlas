@@ -7,4 +7,7 @@ images {
 images {
   image: "/assets/machines/stove/minigame/target.png"
 }
+images {
+  image: "/assets/machines/fridge/minigame/bg.png"
+}
 extrude_borders: 2

@@ -28,6 +28,7 @@ end
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
+	sound.play("/sounds#bg")
 end
 
 function on_input(self, action_id, action)
