@@ -2,30 +2,42 @@ require 'modules.switch'
 
 go.property("min_cooldown", 5)
 go.property("max_cooldown", 10)
+go.property("destroy_cooldown", 10)
 
 local broken = false
 local timer_active = false
+local handle -- Timer Handle
 
 local function start_minigame()
     msg.post("/minigames#stove_1", "start")
+    msg.post("main:/proxies#game", "set_time_step", { factor = 0, mode = 0 })
 end
 
 local function fix_machine()
     msg.post("game:/player#player", "fixed")
+    go.set("#sprite", "tint", vmath.vector4(1, 1, 1, 1))
+    msg.post("main:/proxies#game", "set_time_step", { factor = 1, mode = 0 })
+    timer.cancel(handle)
     broken = false
 end
 
-local function break_machine()
+local function break_machine(self)
     broken = true
     timer_active = false
     msg.post("game:/player#player", "broken")
+    go.set("#sprite", "tint", vmath.vector4(1, 0.6, 0.6, 1))
+    print("Minigame available")
+    handle = timer.delay(self.destroy_cooldown, false, function()
+        print("Machine Destroyed")
+        msg.post("/player#score_manager", "get_score-end")
+    end)
 end
 
 function update(self, dt)
     if not timer_active and not broken then
         math.randomseed(os.time())
         cooldown = math.random(self.min_cooldown, self.max_cooldown)
-        print(cooldown)
+        print("Timer started. Cooldown: " .. cooldown .. " seconds")
         timer_active = true
         timer.delay(cooldown, false, break_machine)
     end
@@ -38,6 +50,8 @@ function on_message(self, message_id, message, sender)
         switch.load(sender)
     elseif message_id == hash("minigame_ended") then
         fix_machine()
+    elseif message_id == hash("score-end") then
+        msg.post("/gui#end_screen", "game_over", message)
     end
 end
 

@@ -10,7 +10,7 @@ fonts {
 nodes {
   position {
     x: 960.0
-    y: 540.0
+    y: 872.0
   }
   scale {
     x: 3.0
@@ -24,12 +24,13 @@ nodes {
   text: "Game Over"
   font: "druid_text_bold"
   id: "title"
+  layer: "foreground"
   inherit_alpha: true
 }
 nodes {
   position {
     x: 960.0
-    y: 368.0
+    y: 700.0
   }
   scale {
     x: 2.0
@@ -43,7 +44,117 @@ nodes {
   text: "Final score: 0"
   font: "druid_text_regular"
   id: "subtitle"
+  layer: "foreground"
   inherit_alpha: true
+}
+nodes {
+  position {
+    x: 960.0
+    y: 540.0
+  }
+  size {
+    x: 1920.0
+    y: 1080.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_BOX
+  id: "background"
+  layer: "background"
+  inherit_alpha: true
+  alpha: 0.8
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 960.0
+    y: 378.0
+  }
+  scale {
+    x: 1.5
+    y: 1.5
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Submit score?"
+  font: "druid_text_regular"
+  id: "question"
+  layer: "foreground"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 760.0
+    y: 254.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_BOX
+  id: "deny"
+  layer: "foreground"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "No"
+  font: "druid_text_regular"
+  id: "deny_text"
+  parent: "deny"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 1160.0
+    y: 254.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.0
+    z: 0.0
+  }
+  type: TYPE_BOX
+  id: "accept"
+  layer: "foreground"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Yes"
+  font: "druid_text_regular"
+  id: "accept_text"
+  parent: "accept"
+  inherit_alpha: true
+}
+layers {
+  name: "background"
+}
+layers {
+  name: "foreground"
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT

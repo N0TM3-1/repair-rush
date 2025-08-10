@@ -1,41 +1,53 @@
+local title
+local subtitle
+local background
+local question
+local deny = {}
+local accept = {}
+
+---@param state boolean
+local function set_gui(state)
+	gui.set_visible(title, state)
+	gui.set_visible(subtitle, state)
+	gui.set_visible(background, state)
+	gui.set_visible(question, state)
+	gui.set_visible(deny.button, state)
+	gui.set_visible(deny.text, state)
+	gui.set_visible(accept.button, state)
+	gui.set_visible(accept.text, state)
+end
+
+local function init_gui()
+	title = gui.get_node("title")
+	subtitle = gui.get_node("subtitle")
+	background = gui.get_node("background")
+	question = gui.get_node("question")
+	deny.button = gui.get_node("deny")
+	deny.text = gui.get_node("deny_text")
+	accept.button = gui.get_node("accept")
+	accept.text = gui.get_node("accept_text")
+	set_gui(false)
+end
+
+local function enable(score)
+	msg.post("main:/proxies#game", "set_time_step", { factor = 0, mode = 0 })
+	gui.set_text(subtitle, "Final score: " .. score)
+	set_gui(true)
+end
+
 function init(self)
-	-- Add initialization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
-end
-
-function final(self)
-	-- Add finalization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
-end
-
-function update(self, dt)
-	-- Add update code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	msg.post(".", "acquire_input_focus")
+	init_gui()
 end
 
 function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Learn more: https://defold.com/manuals/message-passing/
-	-- Remove this function if not needed
+	if message_id == hash("game_over") then
+		enable(message[1])
+	end
 end
 
 function on_input(self, action_id, action)
-	-- Add input-handling code here. The game object this script is attached to
-	-- must have acquired input focus:
-	--
-	--    msg.post(".", "acquire_input_focus")
-	--
-	-- All mapped input bindings will be received. Mouse and touch input will
-	-- be received regardless of where on the screen it happened.
-	-- Learn more: https://defold.com/manuals/input/
-	-- Remove this function if not needed
-end
-
-function on_reload(self)
-	-- Add reload-handling code here
-	-- Learn more: https://defold.com/manuals/hot-reload/
-	-- Remove this function if not needed
+	if action_id == hash("touch") and action.pressed then
+		msg.post("game:/gui#submit_score", "init")
+	end
 end

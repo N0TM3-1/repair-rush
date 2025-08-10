@@ -87,5 +87,13 @@ embedded_instances {
   "  id: \"score\"\n"
   "  component: \"/gui/score/score.gui\"\n"
   "}\n"
+  "components {\n"
+  "  id: \"end_screen\"\n"
+  "  component: \"/gui/end_screen/end_screen.gui\"\n"
+  "}\n"
+  "components {\n"
+  "  id: \"submit_score\"\n"
+  "  component: \"/gui/submit_score/submit_score.gui\"\n"
+  "}\n"
   ""
 }

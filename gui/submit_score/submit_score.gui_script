@@ -1,0 +1,27 @@
+local background
+local title
+local name
+local submit
+local submit_text
+
+---@param state boolean
+local function set_gui(state)
+	gui.set_visible(background, state)
+	gui.set_visible(title, state)
+	gui.set_visible(name, state)
+	gui.set_visible(submit, state)
+	gui.set_visible(submit_text, state)
+end
+
+local function init_gui()
+	background = gui.get_node("background")
+	title = gui.get_node("title")
+	name = gui.get_node("name")
+	submit = gui.get_node("submit")
+	submit_text = gui.get_node("submit_text")
+	set_gui(false)
+end
+
+function init(self)
+	init_gui()
+end
