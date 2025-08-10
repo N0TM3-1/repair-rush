@@ -4,6 +4,9 @@ local name
 local submit
 local submit_text
 
+local input_text = ""
+local active = false
+
 ---@param state boolean
 local function set_gui(state)
 	gui.set_visible(background, state)
@@ -23,5 +26,32 @@ local function init_gui()
 end
 
 function init(self)
+	-- msg.post(".", "release_input_focus")
 	init_gui()
+end
+
+function on_message(self, message_id, message, sender)
+	pprint(message_id, message, sender)
+	if message_id == hash("init") then
+		msg.post(".", "acquire_input_focus")
+		active = true
+		set_gui(true)
+	end
+end
+
+local function http_response(result)
+	print(result)
+end
+
+function on_input(self, action_id, action)
+	if active then
+		if action_id == hash("text") then
+			input_text = input_text .. action.text
+			gui.set_text(name, input_text)
+		elseif action_id == hash("touch") then
+			if gui.pick_node(submit, action.x, action.y) then
+				-- There will be an HTTP request to my api here, but I can't use .env files so I'm just not going to commit this part
+			end
+		end
+	end
 end
