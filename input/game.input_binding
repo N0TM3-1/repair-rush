@@ -42,6 +42,22 @@ mouse_trigger {
   input: MOUSE_WHEEL_DOWN
   action: "zoom_out"
 }
+gamepad_trigger {
+  input: GAMEPAD_LSTICK_UP
+  action: "north"
+}
+gamepad_trigger {
+  input: GAMEPAD_LSTICK_LEFT
+  action: "west"
+}
+gamepad_trigger {
+  input: GAMEPAD_LSTICK_DOWN
+  action: "south"
+}
+gamepad_trigger {
+  input: GAMEPAD_LSTICK_RIGHT
+  action: "east"
+}
 text_trigger {
   input: TEXT
   action: "text"
