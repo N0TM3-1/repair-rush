@@ -15,6 +15,7 @@ end
 
 local function fix_machine()
     msg.post("game:/player#player", "fixed")
+    go.cancel_animations("#sprite")
     go.set("#sprite", "tint", vmath.vector4(1, 1, 1, 1))
     msg.post("main:/proxies#game", "set_time_step", { factor = 1, mode = 0 })
     timer.cancel(handle)
@@ -25,7 +26,8 @@ local function break_machine(self)
     broken = true
     timer_active = false
     msg.post("game:/player#player", "broken")
-    go.set("#sprite", "tint", vmath.vector4(1, 0.6, 0.6, 1))
+    go.animate("#sprite", "tint", go.PLAYBACK_ONCE_FORWARD, vmath.vector4(1, 0, 0, 1), go.EASING_LINEAR,
+        self.destroy_cooldown)
     print("Minigame available")
     handle = timer.delay(self.destroy_cooldown, false, function()
         print("Machine Destroyed")

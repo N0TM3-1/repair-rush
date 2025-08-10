@@ -45,10 +45,8 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("broken") then
-		print("BROKEN message received")
 		table.insert(machines, sender)
 	elseif message_id == hash("fixed") then
-		print("FIXED message received")
 		for k, v in pairs(machines) do
 			if v == sender then -- Remove fixed machine from 'interactibles' table
 				table.remove(machines, k)

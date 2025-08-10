@@ -8,6 +8,8 @@ function on_message(self, message_id, message, sender)
         msg.post("game:/gui#score", "update_score", { score })
     elseif message_id == hash("start_save") then
         msg.post(sender, "save_data", { score })
+    elseif message_id == hash("get_score") then
+        msg.post(sender, "score", { score })
     elseif message_id == hash("get_score-end") then
         msg.post(sender, "score-end", { score })
     end
